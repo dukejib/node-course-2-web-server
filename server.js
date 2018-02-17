@@ -3,6 +3,9 @@ const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
 
+/** For Heroku */
+const port = process.env.PORT || 3000; 
+
 /** Create your express app */
 var app = express();
 
@@ -25,9 +28,9 @@ app.use( (req,res,next) => {
     next();
 });
 /** App Maintenance Mode. Use Next() to move past it */
-app.use( (req,res,next) => {
-    res.render('maintenance.hbs');
-});
+// app.use( (req,res,next) => {
+//     res.render('maintenance.hbs');
+// });
 
 /** use the local public directory for static pages */
 app.use(express.static(__dirname + '/public'));
@@ -76,4 +79,5 @@ app.get('/bad',(req,res) => {
 });
 
 /** Now bind the app to port and start it */
-app.listen(3000, () => console.log('Example app listening on port 3000!'));
+// app.listen(3000, () => console.log('Example app listening on port 3000!'));
+app.listen(port,() => { console.log(`Server is up and running on ${port}`);});
