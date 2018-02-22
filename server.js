@@ -38,8 +38,9 @@ app.use(express.static(__dirname + '/public'));
 /** Create Helpers */
 hbs.registerHelper('getCurrentYear',() => {  return new Date().getFullYear();  });
 hbs.registerHelper('screamIt', (text) => { return text.toUpperCase(); });
-
+hbs.registerHelper('websiteTitle',() => { return 'Node.js / Express / Heroku'; });
 /** create handlers */
+
 app.get('/',(req,res) => {
     res.render('home.hbs',{
         websiteTitle:'Node.js Testing',
@@ -58,6 +59,11 @@ app.get('/about',(req,res) => {
     });
 });
 
+app.get('/projects',(req,res) => {
+    res.render('projects.hbs',{
+        pageTitle:'Projects'
+    });
+});
 
 app.get('/json',(req,res) => {
     // res.send('<h1>This is a history request</h1>')

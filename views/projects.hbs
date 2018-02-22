@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css"/>
-    <title>{{ websiteTitles }}</title>
+    <title>{{ websiteTitle }}</title>
 </head>
 <body>
     
     <dir class="container">
-        <h1>{{ pageTitle }}</h1>
-        <p>{{ pText }}</p>
-        <div class="btn btn-xs btn-success">Hello</div>
-        {{> footer}}
+        {{> header}}
+        {{!-- use handlebar helper to uppercase text --}}
+        <p>All the Projects</p> 
+        {{> footer }}
     </dir>
 
 
